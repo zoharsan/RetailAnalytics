@@ -4,22 +4,22 @@ rmf /user/admin/retail/marketbaskets
 -- Loading raw data
 InputFile = LOAD '/user/admin/retail/retailsalesraw/OnlineRetail.txt' using PigStorage('\t') 
 				 as (	InvoiceNo: int,
-              StockCode: chararray,
-              Description: chararray,
-              Quantity: int,
-              InvoiceDate: chararray,
-              UnitPrice: float,
-              CustomerID: int,
-              Country: chararray);
+              				StockCode: chararray,
+              				Description: chararray,
+              				Quantity: int,
+        				InvoiceDate: chararray,
+              				UnitPrice: float,
+              				CustomerID: int,
+              				Country: chararray);
 BasketsRawN = FILTER InputFile BY (InvoiceNo is not null OR StockCode is not null);
 BasketsRawE = FILTER BasketsRawN BY NOT (StockCode == ' ' 
-											                  OR StockCode == 'DOT' 
+					OR StockCode == 'DOT' 
                                         OR StockCode == 'POST' 
                                         OR StockCode == 'BANK' 
                                         OR StockCode == 'M'
                                         );
 BasketsRaw = FOREACH BasketsRawE GENERATE InvoiceNo, 
-										                      SUBSTRING(StockCode,0,4) as (StockCat:chararray);
+					  SUBSTRING(StockCode,0,4) as (StockCat:chararray);
 BasketsRaw1 = FILTER BasketsRaw BY NOT ( StockCat == '8509');
 BasketsRawU = DISTINCT BasketsRaw1;
 BasketsGroupR1 = GROUP BasketsRawU by InvoiceNo;
