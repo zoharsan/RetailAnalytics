@@ -22,9 +22,9 @@ The original Online Retail data set is available to download on the [UCI Machine
 * This demo runs as admin, and will require setting-up the admin credentials using the previous link. 
 * Upload the [Online Retail dataset](https://github.com/zoharsan/RetailAnalytics/blob/master/OnlineRetail.txt.zip) after unzipping to HDFS on the sandbox at the location **/user/admin/retail/retailsalesraw**. You can quickly create all the subdirectories under **/user** using the HDFS Ambari view. These paths are used in the different pig, hive, and spark scripts. You can customize these locations.
 
-## Data Preparation Running Apache Pig
+## Data Preparation using Apache Pig
 
-### Data Ingestion and Cleansing
+### Data Ingestion and Cleansing and Data Aggregation
 
 The script [RetailSalesIngestion.pig](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesIngestion.pig) runs data cleansing and transformation by:
 * Filtering out the header
@@ -32,6 +32,9 @@ The script [RetailSalesIngestion.pig](https://github.com/zoharsan/RetailAnalytic
 * Add a column with the Total Price for a line item (Quantity * Unit Price).
 
 The script will copy the data under a new HDFS subdirectory **/user/admin/retail/retailsalesclean** which can be mapped onto a Hive table.
+
+The second part of the script aggregates the total revenue by country and store the results in a new HDFS subdirectory **/user/admin/retail/georevenue**. This snippet illustrates the difference in paradigm between a Pig transformation and SQL through Hive.
+
 
 ### Data Preparation for Market Basket Analysis
 
@@ -42,3 +45,7 @@ The script [MBADataPrep.pig](https://github.com/zoharsan/RetailAnalytics/blob/ma
 * Some generic stockcodes or stockcodes not corresponding to actual items are filtered out.
 * Stockcodes per baskets are deduplicated.
 * Baskets are filtered out by size, and baskets > 1 item and lower than 10 items.
+
+
+
+
