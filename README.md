@@ -24,7 +24,7 @@ The original Online Retail data set is available to download on the [UCI Machine
 
 ## Data Preparation using Apache Pig
 
-### Data Ingestion and Cleansing and Data Aggregation
+### Data Ingestion, Cleansing and Aggregation
 
 The script [RetailSalesIngestion.pig](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesIngestion.pig) runs data cleansing and transformation by:
 * Filtering out the header
@@ -45,6 +45,16 @@ The script [MBADataPrep.pig](https://github.com/zoharsan/RetailAnalytics/blob/ma
 * Some generic stockcodes or stockcodes not corresponding to actual items are filtered out.
 * Stockcodes per baskets are deduplicated.
 * Baskets are filtered out by size, and baskets > 1 item and lower than 10 items.
+
+## Hive Tables
+
+Two Hive tables are created. Sample data from these tables can be shown through the Ambari Hive view:
+
+- [RetailSalesRaw](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesRaw.ddl) allows to read the Hive table through SQL and can be used to do similar transformations as done with the Pig scripts. The SQL code is not provided.
+- [RetailSales](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSales.ddl) reads the cleansed data from the previous Pig scripts and will be used to query through SparkSQL for Retail Analytics.
+
+## Retail Analytics using SparkSQL
+
 
 
 
