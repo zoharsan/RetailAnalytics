@@ -25,3 +25,11 @@ RetailSalesClean = FOREACH RetailSalesRaw GENERATE 	InvoiceNo,
                                                     	Country;
 -- Storing Cleansed File                                                    
 STORE RetailSalesClean into '/user/admin/retail/retailsalesclean' using PigStorage ('\t');
+
+-- Generate Overall Sales Aggregate and Sales for top 10 countries
+GeoGroup = group RetailSalesClean by Country;
+GeoRevenue  = foreach GeoGroup generate group, ROUND(SUM(RetailSalesClean.TotalPrice)) as TotalRevenueByCountry;
+GeoRevenueDesc = ORDER GeoRevenue BY TotalRevenueByCountry DESC;
+Top10GeoRevenue = LIMIT GeoRevenueDesc 10;
+
+STORE Top10GeoRevenue into '/user/admin/retail/georevenue' using PigStorage ('\t');
