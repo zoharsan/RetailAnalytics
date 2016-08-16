@@ -29,4 +29,4 @@ The script [RetailSalesIngestion.pig](https://github.com/zoharsan/RetailAnalytic
 * Make the timestamp format consumable by Hive by adding the seconds field.
 * Add a column with the Total Price for a line item (Quantity * Unit Price).
 
-The script will copy the data under a new HDFS subdirectory /user/admin/retail/retailsalesclean which can be mapped onto a Hive table.
+The script will copy the data under a new HDFS subdirectory **/user/admin/retail/retailsalesclean** which can be mapped onto a Hive table.
