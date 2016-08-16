@@ -35,3 +35,10 @@ The script will copy the data under a new HDFS subdirectory **/user/admin/retail
 
 ### Data Preparation for Market Basket Analysis
 
+The script [MBADataPrep.pig](https://github.com/zoharsan/RetailAnalytics/blob/master/MBADataPrep.pig) does data preparation and builds the market baskets for the Spark MLlib FPGrowth association algorithm. The following steps are run to prepare the market baskets:
+
+* The baskets are built by stockcodes grouped by InvoiceNo.
+* Since the data set does not have any item category (Eg, a red alarm clock versus alarm clock category), an item category is built by truncating the last character in the stockcode. Looking at the data set, it seems an acceptable assumption for most items.
+* Some generic stockcodes or stockcodes not corresponding to actual items are filtered out.
+* Stockcodes per baskets are deduplicated.
+* Baskets are filtered out by size, and baskets > 1 item and lower than 10 items.
