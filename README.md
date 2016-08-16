@@ -43,8 +43,8 @@ The script [MBADataPrep.pig](https://github.com/zoharsan/RetailAnalytics/blob/ma
 * The baskets are built by stockcodes grouped by InvoiceNo.
 * Since the data set does not have any item category (Eg, a red alarm clock versus alarm clock category), an item category is built by truncating the last character in the stockcode. Looking at the data set, it seems an acceptable assumption for most items.
 * Some generic stockcodes or stockcodes not corresponding to actual items are filtered out.
-* Stockcodes per baskets are deduplicated.
-* Baskets are filtered out by size, and baskets > 1 item and lower than 10 items.
+* Stockcodes in each basket are deduplicated.
+* Baskets are filtered out by size, keeping only baskets with more than 1 item and less than 10 items.
 
 ## Hive Tables
 
