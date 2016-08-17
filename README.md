@@ -62,6 +62,8 @@ Apache Zeppelin is used for creating a Retail Analytics Notebook to run SparkSQL
 * Go to the Zeppelin main URL at http://127.0.0.1:9995/#/
 * Create a New Notebook called Retail Sales Analytics
 
+This Notebook is corresponding to [RetailSalesAnalyticsNotebook.json](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesAnalyticsNotebook.json).
+
 [RetailSalesAnalytics.sql](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailAnalytics.sql) contains all the sql necessary to create the visualizations. Note that %sql invokes the SparkSQL interpreter in Zeppelin.
 
 Below are all the screenshots for the notebook:
