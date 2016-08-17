@@ -66,8 +66,13 @@ Apache Zeppelin is used for creating a Retail Analytics Notebook to run SparkSQL
 
 ![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/RevenueByCountry.png "Revenue By Country")
 
+### Daily and Hourly Sales Activity
 
+![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/DailyHourlySalesActivity.png "Daily and Hourly Sales Activity")
 
+### Market Basket Analysis
+
+![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/MarketBasketAnalysis.png "Market Basket Analysis")
 
 
 
