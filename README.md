@@ -46,6 +46,8 @@ The script [MBADataPrep.pig](https://github.com/zoharsan/RetailAnalytics/blob/ma
 * Stockcodes in each basket are deduplicated.
 * Baskets are filtered out by size, keeping only baskets with more than 1 item and less than 10 items.
 
+Alternatively, the data preparation could be done using Spark.
+
 ## Hive Tables
 
 Two Hive tables are created. Sample data from these tables can be shown through the Ambari Hive view:
@@ -90,7 +92,40 @@ The histogram below represents the distribution of customer life value by interv
 
 ## Market Basket Analysis using Spark MLLib
 
-The Spark MLLib library is used to perform a market basket analysis using the [FP Growth](https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm) association rule mining algorithm available with Spark MLLib. The [MBAFPGrowth.scala](https://github.com/zoharsan/RetailAnalytics/blob/master/MBAFPGrowth.scala) is a scala implementation of the algorithm which reads the output of the [data preparation in the Apache pig script](https://github.com/zoharsan/RetailAnalytics/blob/master/MBADataPrep.pig)
+The Spark MLLib library is used to perform a market basket analysis using the [FP Growth](https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm) association rule mining algorithm available with Spark MLLib. The [MBAFPGrowth.scala](https://github.com/zoharsan/RetailAnalytics/blob/master/MBAFPGrowth.scala) is a scala implementation of the algorithm which reads the output of the [data preparation in the Apache pig script](https://github.com/zoharsan/RetailAnalytics/blob/master/MBADataPrep.pig).
+
+As you can notice in the parameters of the model, the Minimum support is set to 0.7% to be able to have a relevant most frequent itemset for this data set. The confidence level is set to 80%. This can be subject to further tweaking.
+
+Create a new notebook called Market Basket Analysis, and copy the [MBAFPGrowth.scala](https://github.com/zoharsan/RetailAnalytics/blob/master/MBAFPGrowth.scala) code into it.
+
+When you run it, you should see first the list of the frequent itemset, followed by the association rules found with a confidence level higher than 80%:
+
+> minConfidence: Double = 0.8
+>
+> [2319,2238] => [2320], 0.8857142857142857
+>
+> [2266,2072] => [2238], 0.8571428571428571
+
+By looking at items with StockCodes:
+* Starting with 2319, most of these items are notepads, shopping lists, notebooks. 
+* Starting with 2238, items are mostly lunch bags.
+* Starting with 2320, items are jumbo grocery bags.
+
+We can deduct that customers purchasing notepads/notebooks and lunch bags purchase as well the grocery bags more than 88% of the time.
+
+The following SQL query can show these item types:
+
+> %sql
+>
+>select distinct stockcode, description from retailsales where stockcode like '2319%' or stockcode like '2238%' 
+> or stockcode like '2320%' 
+> or stockcode like '2266%'
+> or stockcode like '2072%' 
+> and description <> '' and description not like '%com%' and description not like 'mailout%' and description not like 'damaged%' order by stockcode asc
+
+Please note that the assumption is not 100% valid in terms of trying to deduct an item category from the first 4 digits of the Item code, but reasonable enough for the purpose of the exercise. Ideally, it would take a dataset with an item category. Another possibility is to run it with the full stockcode, it will show more precise associations between individual items. However, by being specific to the item, It requires to use a much lower minimum support, and provide association rules for much less frequent baskets.
+
+
 
 
 
