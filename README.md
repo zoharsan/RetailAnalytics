@@ -60,7 +60,9 @@ Apache Zeppelin is used for creating a Retail Analytics Notebook to run SparkSQL
 * Go to the Zeppelin main URL at http://127.0.0.1:9995/#/
 * Create a New Notebook called Retail Sales Analytics
 
-[RetailSalesAnalytics.sql](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailAnalytics.sql) contains all the sql necessary to create the visualizations. Below are all the screenshots for the notebook:
+[RetailSalesAnalytics.sql](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailAnalytics.sql) contains all the sql necessary to create the visualizations. Note that %sql invokes the SparkSQL interpreter in Zeppelin.
+
+Below are all the screenshots for the notebook:
 
 ### Revenue by Country
 
@@ -85,6 +87,8 @@ The first graph shows the basket size distribution. It appears that most custome
 The histogram below represents the distribution of customer life value by intervals of 1000 GBP for the customer base.
 
 ![alt text] (https://github.com/zoharsan/RetailAnalytics/blob/master/CustomerLifeTimeValue.png "Customer LifeTime Value")
+
+## Market Basket Analysis using Spark MLLib
 
 
 
