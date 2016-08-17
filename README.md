@@ -64,17 +64,25 @@ Apache Zeppelin is used for creating a Retail Analytics Notebook to run SparkSQL
 
 ### Revenue by Country
 
+The pie chart below shows the distribution of revenue per country for the top 5 countries purchasing online. The table below shows a drill down on the number of customers, transactions, the average size of the basket and metrics on the amount of purchases. It appears clearly that **United Kingdom** is the main source of revenue, with the largest customer base, and the largest Number of transactions.
+
 ![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/RevenueByCountry.png "Revenue By Country")
 
 ### Daily and Hourly Sales Activity
+
+The two following graphs show the daily sales activity over the year, and per hour of the day. It is interesting to note that the most active day was on day 336 of the year 2010, which is December 2nd 2010. The hourly activity shows that the peak hours are 10 am to 3 pm, with a peak at 12pm-1pm during lunch break with 3220 visits during that hour.
 
 ![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/DailyHourlySalesActivity.png "Daily and Hourly Sales Activity")
 
 ### Market Basket Analysis
 
+The first graph shows the basket size distribution. It appears that most customers mostly purchase a single item from the website, but a few customers are actually buying many items from 20 to 40 items. The second graph shows the top 20 popular items.
+
 ![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/MarketBasketAnalysis.png "Market Basket Analysis")
 
 ### Customer LifeTime Value
+
+The histogram below represents the distribution of customer life value by intervals of 1000 GBP for the customer base.
 
 ![alt text] (https://github.com/zoharsan/RetailAnalytics/blob/master/CustomerLifeTimeValue.png "Customer LifeTime Value")
 
