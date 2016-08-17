@@ -55,6 +55,15 @@ Two Hive tables are created. Sample data from these tables can be shown through 
 
 ## Retail Analytics using SparkSQL
 
+Apache Zeppelin is used for creating a Retail Analytics Notebook to run SparkSQL queries (using %sql interpreter) and visualizing data. 
+* Make sure the Apache Zeppelin Notebook is started from the Ambari Dashboard. If not, start it. Zeppelin is installed by default on the HDP 2.4 sandbox.
+* Go to the Zeppelin main URL at http://127.0.0.1:9995/#/
+* Create a New Notebook called Retail Sales Analytics
+
+[RetailSalesAnalytics.sql](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailAnalytics.sql) contains all the sql necessary to create the visualizations. Below are all the screenshots for the notebook:
+
+
+
 
 
 
