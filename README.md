@@ -90,6 +90,7 @@ The histogram below represents the distribution of customer life value by interv
 
 ## Market Basket Analysis using Spark MLLib
 
+The Spark MLLib library is used to perform a market basket analysis using the [FP Growth](https://en.wikipedia.org/wiki/Association_rule_learning#FP-growth_algorithm) association rule mining algorithm available with Spark MLLib. The [MBAFPGrowth.scala](https://github.com/zoharsan/RetailAnalytics/blob/master/MBAFPGrowth.scala) is a scala implementation of the algorithm which reads the output of the [data preparation in the Apache pig script](https://github.com/zoharsan/RetailAnalytics/blob/master/MBADataPrep.pig)
 
 
 
