@@ -98,7 +98,7 @@ The Spark MLLib library is used to perform a market basket analysis using the [F
 
 As you can notice in the parameters of the model, the Minimum support is set to 0.7% to be able to have a relevant most frequent itemset for this data set. The confidence level is set to 80%. This can be subject to further tweaking.
 
-Create a new notebook called Market Basket Analysis, and copy the [MBAFPGrowth.scala](https://github.com/zoharsan/RetailAnalytics/blob/master/MBAFPGrowth.scala) code into it.
+Create a new notebook called Market Basket Analysis, and copy the [MBAFPGrowth.scala](https://github.com/zoharsan/RetailAnalytics/blob/master/MBAFPGrowth.scala) code into it. This notebook is corresponding to [MarketBasketAnalysis.json](https://github.com/zoharsan/RetailAnalytics/blob/master/MarketBasketAnalysis.json).
 
 When you run it, you should see first the list of the frequent itemset, followed by the association rules found with a confidence level higher than 80%:
 
