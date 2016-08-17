@@ -52,7 +52,7 @@ Alternatively, the data preparation could be done using Spark.
 
 Two Hive tables are created. Sample data from these tables can be shown through the Ambari Hive view:
 
-- [RetailSalesRaw](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesRaw.ddl) allows to read the Hive table through SQL and can be used to do similar transformations as done with the Pig scripts. The SQL code is not provided.
+- [RetailSalesRaw](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesRaw.ddl) allows to read the raw data as-is through SQL and can be used to do similar transformations as done with the Pig scripts. The SQL code is not provided.
 - [RetailSales](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSales.ddl) reads the cleansed data from the previous Pig scripts and will be used to query through SparkSQL for Retail Analytics.
 
 ## Retail Analytics using SparkSQL
