@@ -3,7 +3,7 @@ import org.apache.spark.mllib.fpm.FPGrowth
 import org.apache.spark.rdd.RDD
 import sys.process._
 
-val data = sc.textFile("/user/admin/retail/marketbaskets/part-r-00000")
+val data = sc.textFile("/user/admin/retail/marketbaskets")
 
 val transactions: RDD[Array[String]] = data.map(s => s.trim.split(','))
 
