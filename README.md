@@ -9,7 +9,7 @@ This demo illustrates retail analytics using an online retail dataset containing
 
 The following diagram represents the overview of the demo:
 
-![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailAnalyticsOverview.jpg "Retail Analytics Demo Overview")
+![alt text](https://github.com/zoharsan/RetailAnalytics/blob/master/RetailSalesAnalyticsDiagram.jpg "Retail Analytics Demo Overview")
 
 ## Data set
 
